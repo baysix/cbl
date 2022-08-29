@@ -1,0 +1,21 @@
+#contents {
+  background: #faf9fb;
+  padding-bottom: 80px;
+}
+
+#contents_inner {
+}
+#contents_inner .inner {
+  width: 1280px;
+  margin: 0 auto;
+}
+#contents_inner article .subPageTitle {
+  padding: 50px 0 30px 0;
+  font-size: 24px;
+  line-height: 36px;
+}
+#contents_inner article {
+}
+#contents_inner article .contents_box {
+  width: 100%;
+}

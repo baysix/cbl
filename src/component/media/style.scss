@@ -1,0 +1,37 @@
+/* 중앙일보 */
+#middleNews .sourceTitle h1 {
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.9px;
+  color: #222;
+}
+
+#middleNews .sourceDate span {
+  font-size: 13px;
+  color: #929294;
+  line-height: 18px;
+  letter-spacing: -0.7px;
+}
+#middleNews .article_body p {
+  color: #111;
+  margin-top: 8px;
+  line-height: 1.67;
+  letter-spacing: -0.8px;
+  font-size: 17px;
+  word-wrap: break-word;
+}
+#middleNews .article_body .image {
+  color: #111;
+  margin: 15px 0;
+}
+#middleNews .article_body .ab_photo {
+  width: 100% !important;
+}
+
+#middleNews .ab_byline {
+  margin-top: 8px;
+  line-height: 1.67;
+  letter-spacing: -0.8px;
+  font-size: 17px;
+  word-wrap: break-word;
+}

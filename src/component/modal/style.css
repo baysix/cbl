@@ -1,0 +1,62 @@
+#modal {
+}
+#modal .modalInner {
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  padding: 15px;
+}
+#modal .modalInner .modal {
+  position: relative;
+  width: 707px;
+  height: 70vh;
+  min-height: 300px;
+  padding: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 5px 10px 10px 1px rgb(0 0 0 / 30%);
+}
+
+#modal .modalInner .modal .modalHeader {
+  position: relative;
+}
+#modal .modalInner .modal .modalContent {
+  height: 92%;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+#modal .modalInner .modal .modalContent {
+  margin-top: 8px;
+  line-height: 1.67;
+  letter-spacing: -0.8px;
+  font-size: 17px;
+  word-wrap: break-word;
+}
+#modal .modalInner .modal .modalFooter {
+  position: absolute;
+  left: 50%;
+  bottom: 19px;
+  width: 200px;
+  margin-left: -100px;
+}
+
+#modal .modalInner .modal .modalContent::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+#modal .modalInner .modal .modalHeader .modalClose {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  cursor: pointer;
+}
+#modal .modalInner .modal .modalHeader .modalClose {
+}
