@@ -26,12 +26,11 @@ const NewListTemp = (props) => {
   const [target, setTarget] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [itemLists, setItemLists] = useState([]);
-
-  useEffect(() => {}, [itemLists]);
+  // const [ target, setTarget ] = useState(null);
+  // ...
   let page = 0;
-  const getMoreItem = async () => {
+  const fetchProductItems = async () => {
     setIsLoaded(true);
-
     await dataReqApi({ params: { ...initParams, index: page } })
       .then((response) => {
         const { data } = response.data;
@@ -48,35 +47,81 @@ const NewListTemp = (props) => {
       .catch((error) => {
         // setTotalStatus('error');
         // error 코드 작성
-        // toast.error("news Api 에러입니다.", {
-        //   position: toast.POSITION.TOP_CENTER,
-        //   autoClose: 2000,
-        //   hideProgressBar: true,
-        // });
+        toast.error("news Api 에러입니다.", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+          hideProgressBar: true,
+        });
       })
       .finally(() => {});
     page++;
     setIsLoaded(false);
-  };
-
-  const onIntersect = async ([entry], observer) => {
-    if (entry.isIntersecting && !isLoaded) {
-      observer.unobserve(entry.target);
-      await getMoreItem();
-      observer.observe(entry.target);
-    }
+    // ...
   };
 
   useEffect(() => {
     let observer;
     if (target) {
-      observer = new IntersectionObserver(onIntersect, {
-        threshold: 0.4,
-      });
+      observer = new IntersectionObserver(onIntersect, { threshold: 1 });
       observer.observe(target);
     }
     return () => observer && observer.disconnect();
   }, [target]);
+
+  const onIntersect = ([entry]) => {
+    if (entry.isIntersecting) {
+      fetchProductItems();
+    }
+  };
+
+  // let page = 0;
+  // const getMoreItem = async () => {
+  //   setIsLoaded(true);
+  //   await dataReqApi({ params: { ...initParams, index: page } })
+  //     .then((response) => {
+  //       const { data } = response.data;
+  //       if (data.totalPages >= page) {
+  //         setItemLists((itemLists) => itemLists.concat(data.list));
+  //       } else {
+  //         toast.error("데이터가 더이상 존재하지않아슈바!!!.", {
+  //           position: toast.POSITION.TOP_CENTER,
+  //           autoClose: 2000,
+  //           hideProgressBar: true,
+  //         });
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       // setTotalStatus('error');
+  //       // error 코드 작성
+  //       // toast.error("news Api 에러입니다.", {
+  //       //   position: toast.POSITION.TOP_CENTER,
+  //       //   autoClose: 2000,
+  //       //   hideProgressBar: true,
+  //       // });
+  //     })
+  //     .finally(() => {});
+  //   page++;
+  //   setIsLoaded(false);
+  // };
+
+  // const onIntersect = async ([entry], observer) => {
+  //   if (entry.isIntersecting && !isLoaded) {
+  //     observer.unobserve(entry.target);
+  //     await getMoreItem();
+  //     observer.observe(entry.target);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   let observer;
+  //   if (target) {
+  //     observer = new IntersectionObserver(onIntersect, {
+  //       threshold: 0.4,
+  //     });
+  //     observer.observe(target);
+  //   }
+  //   return () => observer && observer.disconnect();
+  // }, [target]);
 
   /**
    * 모달 열기 닫기
