@@ -1,6 +1,6 @@
 import axios from "axios";
 const client = axios.create({
-  baseURL: "http://13.125.187.99:8000",
+  // baseURL: "http://13.125.187.99:8000",
 });
 
 // 요청 인터셉터 추가
