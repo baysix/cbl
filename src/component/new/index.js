@@ -21,12 +21,12 @@ const NewListTemp = (props) => {
 
   const [initParams, setinitParams] = useState(initParam);
   const [modalOnOff, setModalOnOff] = useState(false);
+  const [useId, setUseId] = useState();
   const [itemProps, setItemProps] = useState();
 
   const [target, setTarget] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [itemLists, setItemLists] = useState([]);
-  // const [ target, setTarget ] = useState(null);
   // ...
   let page = 0;
   const fetchProductItems = async () => {
@@ -78,6 +78,7 @@ const NewListTemp = (props) => {
    */
   const handleModal = (data) => {
     setItemProps(data);
+    setUseId(data.newsId);
     setModalOnOff(true);
   };
 
@@ -119,7 +120,7 @@ const NewListTemp = (props) => {
         <ul className="newsListBox">{rendering()}</ul>
       </div>
       {modalOnOff && (
-        <Modal setModalOnOff={setModalOnOff}>
+        <Modal setModalOnOff={setModalOnOff} setUseId={useId}>
           <MediaMidleware setItemProps={itemProps} />
         </Modal>
       )}

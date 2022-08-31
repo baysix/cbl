@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./style.scss";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const ButtonType = (props) => {
-  const { setItemProps } = props;
-
+  const { setUseId } = props;
+  const [newsId, setNewsId] = useState(setUseId);
   // source
 
   useEffect(() => {
@@ -22,7 +23,9 @@ const ButtonType = (props) => {
   return (
     <>
       <div id="buttonWrap">
-        <div className="button reverse customBtn">본문 바로가기</div>
+        <Link to={`/detail`} state={{ newsId: newsId }}>
+          <div className="button reverse customBtn">본문 바로가기</div>
+        </Link>
       </div>
     </>
   );

@@ -6,8 +6,8 @@ import dummy from "../new/dummyData.json";
 import ButtonType from "../button";
 
 const Modal = (props) => {
-  const { setModalOnOff } = props;
-
+  const { setModalOnOff, setUseId } = props;
+  console.log(setUseId, "ddddddddd");
   const onSubmitBtn = () => {
     setModalOnOff(false);
   };
@@ -30,7 +30,7 @@ const Modal = (props) => {
             </div>
             <div className="modalContent">{props.children}</div>
             <div className="modalFooter">
-              <ButtonType />
+              <ButtonType setUseId={setUseId} />
             </div>
           </div>
         </div>

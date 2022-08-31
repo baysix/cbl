@@ -31,7 +31,6 @@ const MediaMidleware = (props) => {
 
   const markup = () => {
     let contents = setItemProps.post.replaceAll("/_ir50_/", "");
-    console.log(setItemProps);
     return { __html: contents };
   };
   return (

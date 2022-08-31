@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/cbl" element={<MainPage />} />
-        <Route path="/cbl2" element={<DetailPage />} />
+        <Route path="/detail" element={<DetailPage />} />
         <Route to="/404" element={<NotFound />} />
       </Routes>
     </Router>

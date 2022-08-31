@@ -1,17 +1,15 @@
-import { useState } from "react";
-
-import { newsCbl } from "../../lib/api/news";
-
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../../component/header";
 import SubContents from "../../component/subpage";
-import NewListTemp from "../../component/new";
-import Modal from "../../component/modal";
 
 const DetailPage = () => {
+  const loaction = useLocation();
+  const [itemId, setItemId] = useState(loaction.state.newsId);
   return (
     <>
       <Header />
-      <SubContents />
+      <SubContents itemId={itemId} />
     </>
   );
 };
