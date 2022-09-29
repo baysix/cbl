@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../images/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -24,10 +24,24 @@ const Header = () => {
       </div>
       <div className="header_menu">
         <ul className="menuList">
-          <li className="on">경제</li>
-          <li>사회</li>
-          <li>연예</li>
-          <li>시사</li>
+          <li className="active">
+            <NavLink
+              to={`/cbl/society`}
+              className={({ isActive }) => (isActive ? "active" : "not")}
+              state={{ category: "사회" }}
+            >
+              사회
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={`/cbl/sports`}
+              className={({ isActive }) => (isActive ? "active" : "not")}
+              state={{ category: "스포츠" }}
+            >
+              스포츠
+            </NavLink>
+          </li>
         </ul>
       </div>
     </header>

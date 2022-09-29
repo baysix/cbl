@@ -7,7 +7,6 @@ import ButtonType from "../button";
 
 const Modal = (props) => {
   const { setModalOnOff, setUseId } = props;
-  console.log(setUseId, "ddddddddd");
   const onSubmitBtn = () => {
     setModalOnOff(false);
   };

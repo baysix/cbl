@@ -11,7 +11,7 @@ import Loading from "../loading";
 import MediaMidleware from "../media";
 
 const NewListTemp = (props) => {
-  const { dataReqApi = (f) => f } = props;
+  const { dataReqApi = (f) => f, category } = props;
 
   const initParam = {
     index: "0",
@@ -23,25 +23,46 @@ const NewListTemp = (props) => {
   const [modalOnOff, setModalOnOff] = useState(false);
   const [useId, setUseId] = useState();
   const [itemProps, setItemProps] = useState();
+  const [selectCategory, setSelectCategory] = useState(category);
 
   const [target, setTarget] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [itemLists, setItemLists] = useState([]);
+
+  useEffect(() => {
+    setSelectCategory(category);
+  }, [category]);
+
+  useEffect(() => {
+    fetchProductItems();
+  }, [selectCategory]);
+
   // ...
   let page = 0;
-  const fetchProductItems = async () => {
+  const fetchProductItems = async (option) => {
     setIsLoaded(true);
-    await dataReqApi({ params: { ...initParams, index: page } })
+    await dataReqApi({
+      params: {
+        ...initParams,
+        select: "category;" + selectCategory,
+        index: page,
+      },
+    })
       .then((response) => {
         const { data } = response.data;
-        if (data.totalPages >= page) {
-          setItemLists((itemLists) => itemLists.concat(data.list));
+        if (option === "scroll") {
+          if (data.totalPages >= page) {
+            setItemLists((itemLists) => itemLists.concat(data.list));
+          } else {
+            toast.error("데이터가 더이상 존재하지않습니다.", {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 2000,
+              hideProgressBar: true,
+            });
+            page--;
+          }
         } else {
-          toast.error("데이터가 더이상 존재하지않아슈바!!!.", {
-            position: toast.POSITION.TOP_CENTER,
-            autoClose: 2000,
-            hideProgressBar: true,
-          });
+          setItemLists(data.list);
         }
       })
       .catch((error) => {
@@ -62,17 +83,18 @@ const NewListTemp = (props) => {
   useEffect(() => {
     let observer;
     if (target) {
-      observer = new IntersectionObserver(onIntersect, { threshold: 1 });
+      observer = new IntersectionObserver(onIntersect, { threshold: 0 });
       observer.observe(target);
     }
     return () => observer && observer.disconnect();
   }, [target]);
 
-  const onIntersect = ([entry]) => {
+  const onIntersect = async ([entry]) => {
     if (entry.isIntersecting) {
-      fetchProductItems();
+      await fetchProductItems("scroll");
     }
   };
+
   /**
    * 모달 열기 닫기
    */

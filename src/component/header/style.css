@@ -175,8 +175,13 @@ table {
   display: flex;
 }
 .header_menu ul li {
-  padding: 15px;
 }
-.header_menu ul li.on {
+.header_menu ul li a {
+  display: inline-block;
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+}
+.header_menu ul li a.active {
   border-bottom: 3px solid rgb(86, 105, 218);
 }
