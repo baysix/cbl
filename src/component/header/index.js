@@ -42,6 +42,24 @@ const Header = () => {
               스포츠
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to={`/cbl/entertain`}
+              className={({ isActive }) => (isActive ? "active" : "not")}
+              state={{ category: "연예" }}
+            >
+              연예
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={`/cbl/word`}
+              className={({ isActive }) => (isActive ? "active" : "not")}
+              state={{ category: "세계" }}
+            >
+              세계
+            </NavLink>
+          </li>
         </ul>
       </div>
     </header>

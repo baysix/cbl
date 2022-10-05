@@ -11,6 +11,7 @@ import {
 import MainPage from "./pages/Main";
 import DetailPage from "./pages/detail";
 import NotFound from "./pages/error";
+import Header from "./component/header";
 
 //뉴스 크롤링 페이지
 // import Society from "./pages/Main/News/Society";
@@ -18,17 +19,33 @@ import NotFound from "./pages/error";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/cbl/society" />} />
-        <Route path="/cbl" element={<MainPage />}>
-          <Route path=":society" element={<MainPage />} />
-          <Route path=":sports" element={<MainPage />} />
-        </Route>
-        <Route path="/detail" element={<DetailPage />} />
-        <Route to="/404" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Navigate to="/cbl/society" />} />
+          <Route path="/cbl" element={<Navigate to="/cbl/society" />} />
+
+          {/* 사회 */}
+          <Route path="/cbl/society" element={<MainPage />} />
+          <Route path="/cbl/society/:id" element={<DetailPage />} />
+
+          {/* 스포츠 */}
+          <Route path="/cbl/sports" element={<MainPage />} />
+          <Route path="/cbl/sports/:id" element={<DetailPage />} />
+
+          {/* 연예 */}
+          <Route path="/cbl/entertain" element={<MainPage />} />
+          <Route path="/cbl/entertain/:id" element={<DetailPage />} />
+
+          {/* 세계 */}
+          <Route path="/cbl/word" element={<MainPage />} />
+          <Route path="/cbl/word/:id" element={<DetailPage />} />
+
+          <Route to="/404" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

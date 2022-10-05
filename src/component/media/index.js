@@ -7,10 +7,10 @@ const MediaMidleware = (props) => {
   const [sourceId, setSourceId] = useState();
   const [itemSource, setItemSource] = useState([
     { sourceName: "중앙일보", sourceClass: "middleNews" },
+    { sourceName: "연합뉴스", sourceClass: "ynaNews" },
   ]);
 
   // source
-
   useEffect(() => {
     document
       .querySelectorAll(".button")
@@ -22,7 +22,6 @@ const MediaMidleware = (props) => {
             "</span></div>")
       );
     itemSource.map((info, idx) => {
-      console.log(info);
       if (info.sourceName === setItemProps.source) {
         setSourceId(info.sourceClass);
       }

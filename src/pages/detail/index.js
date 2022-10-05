@@ -8,7 +8,6 @@ const DetailPage = () => {
   const [itemId, setItemId] = useState(loaction.state.newsId);
   return (
     <>
-      <Header />
       <SubContents itemId={itemId} />
     </>
   );

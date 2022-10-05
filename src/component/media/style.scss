@@ -1,3 +1,6 @@
+a {
+  color: #000 !important;
+}
 /* 중앙일보 */
 #middleNews .sourceTitle h1 {
   font-size: 22px;
@@ -34,4 +37,146 @@
   letter-spacing: -0.8px;
   font-size: 17px;
   word-wrap: break-word;
+}
+
+// 연합뉴스
+#ynaNews .sourceTitle h1 {
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: -0.9px;
+  color: #222;
+}
+#ynaNews .writer-zone {
+  position: relative;
+  float: right;
+}
+#ynaNews .writer-zone > a {
+  display: inline-block;
+}
+#ynaNews .writer-zone .img-con {
+  overflow: hidden;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  vertical-align: top;
+}
+#ynaNews .writer-zone .img-con img {
+  width: 100%;
+}
+#ynaNews .writer-zone .txt-con {
+  display: table-cell;
+  padding-left: 60px;
+  height: 50px;
+  vertical-align: middle;
+}
+#ynaNews .writer-zone .tit-name {
+  overflow: hidden;
+  display: block;
+  max-height: 36px;
+  margin: 4px 0 2px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+#ynaNews .writer-zone .txt-link {
+  font-size: 11px;
+  color: #666;
+  text-decoration: underline;
+}
+.writer-zone > a:hover .tit-name,
+.writer-zone > a:focus .tit-name,
+.writer-zone > a:hover .txt-link,
+.writer-zone > a:focus .txt-link {
+  color: #3061ff;
+}
+
+#ynaNews .sourceDate span {
+  font-size: 13px;
+  color: #929294;
+  line-height: 18px;
+  letter-spacing: -0.7px;
+}
+#ynaNews .comp-box img {
+  width: 100% !important;
+  margin: 20px 0;
+}
+#ynaNews .comp-box .desc-con {
+  margin: 14px 0 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #888;
+}
+#ynaNews .comp-box .desc-con .tit-cap {
+  font-size: 16px;
+  color: #000;
+}
+
+#ynaNews .comp-box .desc-con p {
+  margin: 14px 0 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #888;
+}
+#ynaNews .story-news p {
+  color: #111;
+  margin-top: 8px;
+  line-height: 1.67;
+  letter-spacing: -0.8px;
+  font-size: 17px;
+  word-wrap: break-word;
+}
+
+#ynaNews .related-zone {
+  margin: 30px;
+}
+#ynaNews .related-zone {
+  clear: both;
+  font-size: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+#ynaNews .related-zone + .related-zone {
+  border-top: none;
+}
+#ynaNews .related-zone > [class*="-con"] {
+  display: inline-block;
+  margin: 24px 0;
+  vertical-align: top;
+}
+#ynaNews .related-zone .tit-con {
+  width: 118px;
+}
+#ynaNews .related-zone .txt-con {
+  width: 600px;
+}
+#ynaNews .related-zone .txt-con .list {
+  position: relative;
+  padding-left: 24px;
+}
+#ynaNews .related-zone .list:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: #000;
+}
+#ynaNews .related-zone .list > li + li {
+  margin-top: 11px;
+}
+#ynaNews .related-zone .list a {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 23px;
+}
+#ynaNews .related-zone .list a:hover,
+#ynaNews .related-zone .list a:focus {
+  text-decoration: underline;
 }
